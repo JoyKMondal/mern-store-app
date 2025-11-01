@@ -10,6 +10,7 @@ const FooterContainer = styled.footer`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
+  margin-top: 10rem;
 `;
 
 const NewsletterInput = styled.input`
