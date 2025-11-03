@@ -102,7 +102,7 @@ const PlaceItem = (props) => {
                 auth.userType === "Admin" &&
                 location.pathname !== "/shop" && (
                   <Fragment>
-                    <Button to={`/places/${props.id}`}>EDIT</Button>
+                    <Button to={`/admin-dashboard/places/${props.id}`}>EDIT</Button>
                     <Button danger onClick={showDeleteWarningHandler}>
                       DELETE
                     </Button>

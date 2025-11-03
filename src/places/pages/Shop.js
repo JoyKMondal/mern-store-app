@@ -28,7 +28,7 @@ const Shop = () => {
     fetchUsers();
   }, [sendRequest]);
 
-  console.log(loadedPlaces)
+  // console.log(loadedPlaces)
 
   const placeDeletedHandler = (deletedPlaceId) => {
     setLoadedPlaces((prevPlaces) =>
@@ -57,7 +57,7 @@ const Shop = () => {
 
   const shopProductsByCategory =
     loadedPlaces &&
-    loadedPlaces.filter((item) => item.category !== param.cat_name);
+    loadedPlaces.filter((item) => item.category === param.cat_name);
 
   return (
     <Fragment>
