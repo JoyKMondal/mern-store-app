@@ -10,6 +10,7 @@ import LoadingSpinner from "../UIElements/LoadingSpinner";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { formatPrice } from "../../util/converters";
 
 const Cart = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -115,7 +116,7 @@ const Cart = (props) => {
               <div className="item-wrapper">
                 <div className="item-price">
                   <p>Price</p>
-                  <p>${item.productId.price}</p>
+                  <p>{formatPrice(item.productId.price)}</p>
                 </div>
                 <div className="item-quantity">
                   <p>Quantity</p>
@@ -128,10 +129,16 @@ const Cart = (props) => {
         <div className="cart-footer">
           <div className="cart-summary">
             <div>Total:</div>
-            <div className="total">${totalPrice && totalPrice.toFixed(2)}</div>
+            <div className="total">{formatPrice(totalPrice)}</div>
           </div>
           <div className="cart-actions">
-            <Button inverse to={`/shop`}>
+            <Button 
+              inverse 
+              onClick={() => {
+                props.onCloseCart();
+                navigate("/shop");
+              }
+            }>
               Continue Shopping
             </Button>
             <Button danger onClick={placeOrderHandler}>

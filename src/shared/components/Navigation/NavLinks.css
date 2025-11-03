@@ -49,48 +49,120 @@
   color: #8c7ae6;
 }
 
+/* ---------- AUTH POPUP (only styles) ---------- */
 .auth-popup {
   position: absolute;
-  top: 3rem;
-  right: 10rem;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  padding: 0.5rem;
-  font-family: "Poppins";
-}
-.show {
-  display: block;
+  top: 100%;
+  right: 0;              
+  min-width: 12rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e9ecef;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
-.hidden {
-  display: none;
+.auth-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
+/* List */
 .auth-popup ul {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  gap: 1rem;
-  margin: 1rem auto;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.auth-popup ul a {
-  list-style-type: none;
+/* List items */
+.auth-popup ul li {
+  margin: 0;
+  padding: 0 0.75rem;
+}
+
+/* Links & buttons */
+.auth-popup ul a,
+.auth-popup ul button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  text-transform: capitalize;
-  color: #535c68;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
+  color: #2d3436;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: none;
   border: none;
-  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-transform: capitalize;
+  position: relative;
 }
 
-.auth-popup ul a:hover {
-  background: #c7ecee;
-  color: #8c7ae6;
+/* Hover/focus accent bar */
+.auth-popup ul a::before,
+.auth-popup ul button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #6c5ce7;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.22s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Hover & focus state */
+.auth-popup ul a:hover,
+.auth-popup ul a:focus,
+.auth-popup ul button:hover,
+.auth-popup ul button:focus {
+  background: linear-gradient(135deg, #f0efff 0%, #e8f5e9 100%);
+  color: #5f3dc4;
+  outline: none;
+  transform: translateX(2px);
+}
+
+.auth-popup ul a:hover::before,
+.auth-popup ul a:focus::before,
+.auth-popup ul button:hover::before,
+.auth-popup ul button:focus::before {
+  transform: scaleY(1);
+}
+
+/* Keyboard focus ring */
+.auth-popup ul a:focus-visible,
+.auth-popup ul button:focus-visible {
+  outline: 2px solid #6c5ce7;
+  outline-offset: -2px;
+}
+
+/* Desktop – slightly larger, same right alignment */
+@media (min-width: 768px) {
+  .auth-popup {
+    right: 0;                     /* ← still right-aligned */
+    min-width: 13rem;
+  }
+
+  .auth-popup ul a,
+  .auth-popup ul button {
+    padding: 0.85rem 1.1rem;
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 768px) {

@@ -12,6 +12,7 @@ import { FaRegMinusSquare } from "react-icons/fa";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { formatPrice } from "../../shared/util/converters";
 
 const ProductDetails = () => {
   const [loadedProduct, setLoadedProduct] = useState();
@@ -206,7 +207,7 @@ const ProductDetails = () => {
           </p>
           <div className="summaryy">{category}</div>
           <div className="summaryy">{description}</div>
-          <div className="prices">${price}</div>
+          <div className="prices">{formatPrice(price)}</div>
           <div className="quantityEl">
             <p className="title">Adjust Quantity</p>
             <div className="btns">
