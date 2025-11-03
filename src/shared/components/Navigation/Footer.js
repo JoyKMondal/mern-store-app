@@ -108,7 +108,7 @@ const Footer = () => {
             <i className="fab fa-instagram"></i>
           </a>
           <a
-            href="https://github.com/hellow-world007"
+            href="https://github.com/JoyKMondal"
             target="_blank"
             rel="noopener noreferrer"
           >
