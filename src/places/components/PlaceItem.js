@@ -10,6 +10,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { Link, useLocation } from "react-router-dom";
+import { formatPrice } from "../../shared/util/converters";
 
 const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
@@ -94,7 +95,7 @@ const PlaceItem = (props) => {
                   <h2>{props.title}</h2>
                   <p>by {props.author}</p>
                 </div>
-                <h3>${props.price}</h3>
+                <h3>{formatPrice(props.price)}</h3>
               </div>
             </header>
             <div className="content">
