@@ -21,6 +21,7 @@ const PlaceItem = (props) => {
 
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
+    console.log("delete warning!!!");
   };
 
   const cancelDeleteHandler = () => {
@@ -31,7 +32,7 @@ const PlaceItem = (props) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/api/places/${props.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/admin/${props.id}`,
         "DELETE",
         null,
         {
@@ -80,37 +81,44 @@ const PlaceItem = (props) => {
             onClick={() => onToggleLike(props.id)}
           />
         </div>
-        <Link to={`/products/${props.id}`}>
-          <header>
-            <img
-              src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`}
-              alt={props.title}
-              className="img"
-            />
-            <div className="rows">
-              <div className="headerText">
-                <h2>{props.title}</h2>
-                <p>by {props.author}</p>
+        <div className="meal_item">
+          <Link to={`/products/${props.id}`}>
+            <header>
+              <img
+                src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`}
+                alt={props.title}
+                className="img"
+              />
+              <div className="rows">
+                <div className="headerText">
+                  <h2>{props.title}</h2>
+                  <p>by {props.author}</p>
+                </div>
+                <h3>${props.price}</h3>
               </div>
-              <h3>${props.price}</h3>
+            </header>
+            <div className="content">
+              <p className="summary">{props.description}</p>
             </div>
-          </header>
-          <div className="content">
-            <p className="summary">{props.description}</p>
-            <div className="actions">
-              {auth.userId === props.creatorId &&
-                auth.userType === "Admin" &&
-                location.pathname !== "/shop" && (
-                  <Fragment>
-                    <Button to={`/admin-dashboard/places/${props.id}`}>EDIT</Button>
-                    <Button danger onClick={showDeleteWarningHandler}>
-                      DELETE
-                    </Button>
-                  </Fragment>
-                )}
-            </div>
+          </Link>
+          <div className="actions">
+            {auth.userId === props.creatorId &&
+              auth.userType === "Admin" &&
+              location.pathname !== "/shop" && (
+                <div>
+                  <Button to={`/admin-dashboard/places/${props.id}`}>
+                    EDIT
+                  </Button>
+                  <Button
+                    danger
+                    onClick={showDeleteWarningHandler}
+                  >
+                    DELETE
+                  </Button>
+                </div>
+              )}
           </div>
-        </Link>
+        </div>
       </div>
     </React.Fragment>
   );
