@@ -115,7 +115,7 @@ const OrderDetails = () => {
                   {order.products.map((p) => (
                     <div className="single-item">
                       <img
-                        src={`${process.env.REACT_APP_BACKEND_URL}/${p.product.imageUrl}`}
+                        src={`${p.product.imageUrl}`}
                         alt={p.product.title}
                         className="order-list-image"
                       />

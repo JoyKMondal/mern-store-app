@@ -86,7 +86,7 @@ const PlaceItem = (props) => {
           <Link to={`/products/${props.id}`}>
             <header>
               <img
-                src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`}
+                src={`${props.image}`}
                 alt={props.title}
                 className="img"
               />

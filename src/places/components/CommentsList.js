@@ -42,7 +42,7 @@ const CommentsList = (props) => {
           {comments.map((item) => (
             <div key={item.id} className="wishlist-item">
               <img
-                src={`${process.env.REACT_APP_BACKEND_URL}/${item.userImageUrl}`}
+                src={`${item.userImageUrl}`}
                 alt={item.title}
                 className="wishlist-image"
               />

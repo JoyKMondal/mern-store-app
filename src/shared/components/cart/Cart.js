@@ -97,7 +97,7 @@ const Cart = (props) => {
               <div className="item-header" key={index}>
                 <div className="header-left">
                   <img
-                    src={`${process.env.REACT_APP_BACKEND_URL}/${item.productId.imageUrl}`}
+                    src={`${item.productId.imageUrl}`}
                     alt={item.title}
                   />
                   <div className="item-name">{item.title}</div>

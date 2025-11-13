@@ -192,7 +192,7 @@ const ProductDetails = () => {
       <div className="headers">
         <div className="image">
           <img
-            src={`${process.env.REACT_APP_BACKEND_URL}/${imageUrl}`}
+            src={`${imageUrl}`}
             alt={title}
             className="imgs"
           />

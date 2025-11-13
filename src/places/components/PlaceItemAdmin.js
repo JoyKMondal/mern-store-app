@@ -65,7 +65,7 @@ const PlaceItemAdmin = (props) => {
         <td>
           <img
             style={{ height: "30px", width: "30px" }}
-            src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`}
+            src={`${props.image}`}
             alt={props.title}
           />
         </td>

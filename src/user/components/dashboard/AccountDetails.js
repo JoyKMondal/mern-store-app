@@ -117,7 +117,7 @@ const AccountDetails = () => {
           <div className="image-wrapper">
             <img
               className="wrap-image"
-              src={`${process.env.REACT_APP_BACKEND_URL}/${updateUser.image}`}
+              src={`${updateUser.image}`}
               alt={updateUser.name}
             />
           </div>

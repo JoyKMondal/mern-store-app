@@ -103,7 +103,7 @@ const Order = () => {
                 {order.products.map((p) => (
                   <>
                     <img
-                      src={`${process.env.REACT_APP_BACKEND_URL}/${p.product.imageUrl}`}
+                      src={`${p.product.imageUrl}`}
                       alt={p.product.title}
                       className="wishlist-image"
                     />
